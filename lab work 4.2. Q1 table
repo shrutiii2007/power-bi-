@@ -26,3 +26,53 @@ Date	Month	Year
 2024-01-15	January	2024
 2024-02-05	February	2024
 
+New_Orders table
+OrderID	Cust_ID	Amount
+O201	C001	1500
+O202	C003	2000
+
+ FactSales 
+SaleID	ProductID	CustomerID	DateID	RegionID	Revenue
+S1	P101	C201	D301	R401	5000
+S2	P102	C202	D302	R402	3200
+S3	P103	C203	D303	R402	4500
+S4	P104	C204	D304	R403	1500
+
+ DimProduct
+ProductID	ProductName	Category
+P101	Laptop	Electronics
+P102	Smartphone	Electronics
+P103	Tablet	Electronics
+P104	Headphones	Accessories
+
+ DimCustomer
+CustomerID	Name	City
+C201	Amit Shah	Ahmedabad
+C202	Neha Patel	Surat
+C203	Rahul Mehta	Mumbai
+C204	Priya Singh	Delhi
+
+DimDate
+DateID	Date	Month	Year
+D301	2025-01-05	Jan	2025
+D302	2025-02-10	Feb	2025
+D303	2025-03-15	Mar	2025
+D304	2025-04-20	Apr	2025
+
+ DimRegion
+RegionID	RegionName	Zone
+R401	Gujarat	West
+R402	Maharashtra	West
+R403	Delhi NCR	North
+R404	Karnataka	South
+
+ProductCategory table (intermediate table)
+CategoryID	CategoryName
+CAT01	Electronics
+CAT02	Accessories
+
+
+
+
+
+
