@@ -1,0 +1,28 @@
+Customers Table — Excel mein save karo
+CustomerID	CustomerName	City
+C001	Priya Sharma	Mumbai
+C002	Rahul Verma	Delhi
+C003	Sneha Patel	Ahmedabad
+
+Orders Table — alag Excel file mein
+OrderID	CustomerID	Amount	OrderDate
+O101	C001	5000	2024-01-10
+O102	C002	3200	2024-01-15
+O103	C001	7500	2024-02-05
+
+Products table
+ProductID	ProductName	Price
+P01	Laptop	55000
+P02	Mouse	800
+
+Sales table
+SaleID	ProductID	Qty
+S1	P01	2
+S2	P02	5
+
+Calendar Table
+Date	Month	Year
+2024-01-10	January	2024
+2024-01-15	January	2024
+2024-02-05	February	2024
+
