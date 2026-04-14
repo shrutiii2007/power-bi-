@@ -1,0 +1,85 @@
+Electronics Sales =
+CALCULATE(
+    SUM(Sales[Amount]),
+    Sales[Category] = "Electronics"
+)
+
+
+Previous Year Sales =
+CALCULATE(
+    SUM(Sales[Amount]),
+    SAMEPERIODLASTYEAR(Date[Date])
+)
+
+
+Top 5 Sales =
+CALCULATE(
+    SUM(Sales[Amount]),
+    TOPN(5, ALL(Sales[ProductName]), SUM(Sales[Amount]), DESC)
+)
+
+
+New Customer Sales =
+CALCULATE(
+    SUM(Sales[Amount]),
+    Sales[IsNew] = TRUE()
+)
+
+
+Avg Sales per Customer =
+DIVIDE(
+    SUM(Sales[Amount]),
+    DISTINCTCOUNT(Sales[Customer])
+)
+
+
+Sales per Quantity =
+DIVIDE(
+    SUM(Sales[Amount]),
+    SUM(Sales[Quantity])
+)
+
+Above Avg Customer =
+VAR AvgSales =
+    AVERAGE(Sales[Amount])
+RETURN
+IF(
+    SUM(Sales[Amount]) > AvgSales,
+    "Yes",
+    "No"
+)
+
+Total Sales (All) =
+CALCULATE(
+    SUM(Sales[Amount]),
+    ALL(Sales)
+)
+
+
+% of Total Sales (Category) =
+DIVIDE(
+    SUM(Sales[Amount]),
+    CALCULATE(
+        SUM(Sales[Amount]),
+        ALL(Sales[Category])
+    )
+)
+
+
+Product Rank =
+RANKX(
+    ALL(Sales[ProductName]),
+    CALCULATE(SUM(Sales[Amount])),
+    ,
+    DESC
+)
+
+
+% National Sales =
+DIVIDE(
+    SUM(Sales[Amount]),
+    CALCULATE(
+        SUM(Sales[Amount]),
+        ALL(Sales[Region])
+    )
+)
