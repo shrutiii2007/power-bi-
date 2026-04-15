@@ -1,4 +1,14 @@
 ------------------
+QUESTION :- 1
+------------------
+
+Electronics Sales = 
+CALCULATE(
+    SUM('Sales Table'[Amount]),
+    'Sales Table'[Category] = "Electronics"
+)
+
+------------------
 QUESTION :- 2
 ------------------
 
