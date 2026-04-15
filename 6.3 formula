@@ -71,7 +71,11 @@ IFERROR(
 0
 )
 
-
+Safe Avg Sales = 
+IFERROR(
+AVERAGE('Sales Table'[SalesAmount]),
+"No Data"
+)
 
 
 
