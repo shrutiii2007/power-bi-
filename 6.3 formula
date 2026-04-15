@@ -1,0 +1,43 @@
+Total Sales = SUM('Sales Table'[SalesAmount])
+
+
+Avg Order Value = AVERAGE('Sales Table'[SalesAmount])
+
+
+Avg Sales Rounded = 
+ROUND(
+  DIVIDE(
+    SUM('Sales Table'[SalesAmount]),
+    COUNT('Sales Table'[OrderID])
+  ),
+  0
+)
+
+
+Total Transactions = COUNT('Sales Table'[OrderID])
+
+
+Products with Names = COUNTA('Sales Table'[Product])
+
+
+Total Rows = COUNTROWS('Sales Table')
+
+
+Unique Customers = DISTINCTCOUNT('Sales Table'[CustomerName])
+
+
+Missing Products = COUNTBLANK('Sales Table'[Product])
+
+
+Sales Flag = 
+IF('Sales Table'[SalesAmount] >= 30000, "High", "Normal")
+
+
+Sales Category = 
+IF('Sales Table'[SalesAmount] >= 50000, "Premium",
+  IF('Sales Table'[SalesAmount] >= 20000, "Mid",
+    "Budget"
+  )
+)
+
+
