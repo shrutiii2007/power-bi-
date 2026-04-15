@@ -1,0 +1,10 @@
+------------------
+QUESTION :- 2
+------------------
+
+Previous Year Sales = 
+CALCULATE(
+    SUM('Sales Table'[Amount]),
+    SAMEPERIODLASTYEAR('Date'[Date])
+)
+
