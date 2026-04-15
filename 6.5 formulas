@@ -2,9 +2,126 @@
 QUESTION :- 2
 ------------------
 
+Q2 (part - 1)
+
 Previous Year Sales = 
 CALCULATE(
     SUM('Sales Table'[Amount]),
     SAMEPERIODLASTYEAR('Date'[Date])
 )
+
+Q2 (part - 2)
+
+Total Sales = SUM('Sales Table'[Amount])
+
+
+Top 5 Sales = 
+CALCULATE(
+    [Total Sales],
+    KEEPFILTERS(
+        TOPN(
+            5,
+            ALL('Sales Table'[Customer]),   
+            [Total Sales],
+            DESC
+        )
+    )
+)
+
+Q2 (part - 3)
+
+New Customer Sales =
+CALCULATE(
+    SUM('Sales Table'[Amount]),
+    'Sales Table'[IsNew] = TRUE()
+)
+
+------------------
+QUESTION :- 3
+------------------
+
+Avg Sales per Customer =
+DIVIDE(                                                        ------- ye mam ka hai 
+    SUM(Sales[Amount]),
+    DISTINCTCOUNT(Sales[Customer])
+)
+
+Avg Sales per Customer = 
+VAR TotalCustomers =
+    CALCULATE(DISTINCTCOUNT('Sales Table'[Customer]), ALL('Sales Table'))         ---------- ye AI ka hai 
+RETURN
+DIVIDE(SUM('Sales Table'[Amount]), TotalCustomers)
+
+------------------
+QUESTION :- 4
+------------------
+
+question :- 4 (part - 1)
+
+Sales per Quantity =
+DIVIDE(
+    SUM('Sales Table'[Amount]),
+    SUM('Sales Table'[Quantity])
+)
+
+question :- 4 (part - 2)
+
+Above Avg Customer =
+VAR AvgSales =
+    AVERAGE('Sales Table'[Amount])
+RETURN
+IF(
+    SUM('Sales Table'[Amount]) > AvgSales,
+    "Yes",
+    "No"
+)
+
+------------------
+QUESTION :- 5
+------------------
+
+Question - 5 (part - 1)
+
+Total Sales (All) =
+CALCULATE(
+    SUM(Sales[Amount]),
+    ALL(Sales)
+)
+
+Question - 5  (part - 2)
+
+% of Total Sales (Category) = 
+DIVIDE(
+    SUM('Sales Table'[Amount]),
+    CALCULATE(
+        SUM('Sales Table'[Amount]),
+        ALL('Sales Table'[Category])
+    )
+)
+
+------------------
+QUESTION :- 6
+------------------
+
+(question 6 part - 1)
+
+Product Rank =
+RANKX(
+    ALL('Sales Table'[ProductName]),
+    CALCULATE(SUM('Sales Table'[Amount])),
+    ,
+    DESC
+)
+
+question 6 (part - 2)
+
+% National Sales = 
+DIVIDE(
+    SUM('Sales Table'[Amount]),
+    CALCULATE(
+        SUM('Sales Table'[Amount]),
+        ALL('Sales Table'[Region])
+    )
+)
+
 
