@@ -1,3 +1,8 @@
+question 1 to 8 = all measures 
+Question 9 to 12 = Coloumn 
+12 1 in meausres 
+
+
 Total Sales = SUM('Sales Table'[SalesAmount])
 
 
@@ -39,5 +44,37 @@ IF('Sales Table'[SalesAmount] >= 50000, "Premium",
     "Budget"
   )
 )
+
+----------------------
+QUESTION :- 11
+----------------------
+
+Star Order Flag =
+IF(AND('Sales Table'[Quantity] >= 2, 'Sales Table'[SalesAmount] >= 20000),
+"Star Order",
+"Regular"
+)
+
+Priority Flag =
+IF(OR('Sales Table'[Category] = "Electronics", 'Sales Table'[Region] = "Mumbai"),
+"Priority",
+"Standard"
+)
+
+---------------------
+QUESTION :- 12
+---------------------
+
+Price Per Unit =
+IFERROR(
+'Sales Table'[SalesAmount] / 'Sales Table'[Quantity],
+0
+)
+
+
+
+
+
+
 
 
