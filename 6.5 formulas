@@ -1,137 +1,15 @@
-------------------
-QUESTION :- 1
-------------------
+## 📊 Lab Work 6.5 – DAX Formulas
 
-Electronics Sales = 
-CALCULATE(
-    SUM('Sales Table'[Amount]),
-    'Sales Table'[Category] = "Electronics"
-)
-
-------------------
-QUESTION :- 2
-------------------
-
-Q2 (part - 1)
-
-Previous Year Sales = 
-CALCULATE(
-    SUM('Sales Table'[Amount]),
-    SAMEPERIODLASTYEAR('Date'[Date])
-)
-
-Q2 (part - 2)
-
-Total Sales = SUM('Sales Table'[Amount])
-
-
-Top 5 Sales = 
-CALCULATE(
-    [Total Sales],
-    KEEPFILTERS(
-        TOPN(
-            5,
-            ALL('Sales Table'[Customer]),   
-            [Total Sales],
-            DESC
-        )
-    )
-)
-
-Q2 (part - 3)
-
-New Customer Sales =
-CALCULATE(
-    SUM('Sales Table'[Amount]),
-    'Sales Table'[IsNew] = TRUE()
-)
-
-------------------
-QUESTION :- 3
-------------------
-
-Avg Sales per Customer =
-DIVIDE(                                                        ------- ye mam ka hai 
-    SUM(Sales[Amount]),
-    DISTINCTCOUNT(Sales[Customer])
-)
-
-Avg Sales per Customer = 
-VAR TotalCustomers =
-    CALCULATE(DISTINCTCOUNT('Sales Table'[Customer]), ALL('Sales Table'))         ---------- ye AI ka hai 
-RETURN
-DIVIDE(SUM('Sales Table'[Amount]), TotalCustomers)
-
-------------------
-QUESTION :- 4
-------------------
-
-question :- 4 (part - 1)
-
-Sales per Quantity =
-DIVIDE(
-    SUM('Sales Table'[Amount]),
-    SUM('Sales Table'[Quantity])
-)
-
-question :- 4 (part - 2)
-
-Above Avg Customer =
-VAR AvgSales =
-    AVERAGE('Sales Table'[Amount])
-RETURN
-IF(
-    SUM('Sales Table'[Amount]) > AvgSales,
-    "Yes",
-    "No"
-)
-
-------------------
-QUESTION :- 5
-------------------
-
-Question - 5 (part - 1)
-
-Total Sales (All) =
-CALCULATE(
-    SUM(Sales[Amount]),
-    ALL(Sales)
-)
-
-Question - 5  (part - 2)
-
-% of Total Sales (Category) = 
-DIVIDE(
-    SUM('Sales Table'[Amount]),
-    CALCULATE(
-        SUM('Sales Table'[Amount]),
-        ALL('Sales Table'[Category])
-    )
-)
-
-------------------
-QUESTION :- 6
-------------------
-
-(question 6 part - 1)
-
-Product Rank =
-RANKX(
-    ALL('Sales Table'[ProductName]),
-    CALCULATE(SUM('Sales Table'[Amount])),
-    ,
-    DESC
-)
-
-question 6 (part - 2)
-
-% National Sales = 
-DIVIDE(
-    SUM('Sales Table'[Amount]),
-    CALCULATE(
-        SUM('Sales Table'[Amount]),
-        ALL('Sales Table'[Region])
-    )
-)
-
-
+| Questions | Formulas | Notes |
+|----------|----------|-------|
+| Q1 | Electronics Sales = <br> CALCULATE( <br> &nbsp;&nbsp;SUM('Sales Table'[Amount]), <br> &nbsp;&nbsp;'Sales Table'[Category] = "Electronics" <br> ) | |
+| Q2 (Part 1) | Previous Year Sales = <br> CALCULATE( <br> &nbsp;&nbsp;SUM('Sales Table'[Amount]), <br> &nbsp;&nbsp;SAMEPERIODLASTYEAR('Date'[Date]) <br> ) | |
+| Q2 (Part 2) | Total Sales = <br> SUM('Sales Table'[Amount]) <br><br> Top 5 Sales = <br> CALCULATE( <br> &nbsp;&nbsp;[Total Sales], <br> &nbsp;&nbsp;KEEPFILTERS( <br> &nbsp;&nbsp;&nbsp;&nbsp;TOPN( <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5, <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALL('Sales Table'[Customer]), <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Total Sales], <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESC <br> &nbsp;&nbsp;&nbsp;&nbsp;) <br> &nbsp;&nbsp;) <br> ) | |
+| Q2 (Part 3) | New Customer Sales = <br> CALCULATE( <br> &nbsp;&nbsp;SUM('Sales Table'[Amount]), <br> &nbsp;&nbsp;'Sales Table'[IsNew] = TRUE() <br> ) | |
+| Q3 | Avg Sales per Customer (Mam) = <br> DIVIDE( <br> &nbsp;&nbsp;SUM(Sales[Amount]), <br> &nbsp;&nbsp;DISTINCTCOUNT(Sales[Customer]) <br> ) <br><br> Avg Sales per Customer (AI) = <br> VAR TotalCustomers = <br> &nbsp;&nbsp;CALCULATE(DISTINCTCOUNT('Sales Table'[Customer]), ALL('Sales Table')) <br> RETURN <br> DIVIDE(SUM('Sales Table'[Amount]), TotalCustomers) | |
+| Q4 (Part 1) | Sales per Quantity = <br> DIVIDE( <br> &nbsp;&nbsp;SUM('Sales Table'[Amount]), <br> &nbsp;&nbsp;SUM('Sales Table'[Quantity]) <br> ) | |
+| Q4 (Part 2) | Above Avg Customer = <br> VAR AvgSales = <br> &nbsp;&nbsp;AVERAGE('Sales Table'[Amount]) <br> RETURN <br> IF( <br> &nbsp;&nbsp;SUM('Sales Table'[Amount]) > AvgSales, <br> &nbsp;&nbsp;"Yes", <br> &nbsp;&nbsp;"No" <br> ) | |
+| Q5 (Part 1) | Total Sales (All) = <br> CALCULATE( <br> &nbsp;&nbsp;SUM(Sales[Amount]), <br> &nbsp;&nbsp;ALL(Sales) <br> ) | |
+| Q5 (Part 2) | % of Total Sales (Category) = <br> DIVIDE( <br> &nbsp;&nbsp;SUM('Sales Table'[Amount]), <br> &nbsp;&nbsp;CALCULATE( <br> &nbsp;&nbsp;&nbsp;&nbsp;SUM('Sales Table'[Amount]), <br> &nbsp;&nbsp;&nbsp;&nbsp;ALL('Sales Table'[Category]) <br> &nbsp;&nbsp;) <br> ) | |
+| Q6 (Part 1) | Product Rank = <br> RANKX( <br> &nbsp;&nbsp;ALL('Sales Table'[ProductName]), <br> &nbsp;&nbsp;CALCULATE(SUM('Sales Table'[Amount])), <br> &nbsp;&nbsp;, <br> &nbsp;&nbsp;DESC <br> ) | |
+| Q6 (Part 2) | % National Sales = <br> DIVIDE( <br> &nbsp;&nbsp;SUM('Sales Table'[Amount]), <br> &nbsp;&nbsp;CALCULATE( <br> &nbsp;&nbsp;&nbsp;&nbsp;SUM('Sales Table'[Amount]), <br> &nbsp;&nbsp;&nbsp;&nbsp;ALL('Sales Table'[Region]) <br> &nbsp;&nbsp;) <br> ) | |
