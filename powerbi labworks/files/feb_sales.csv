@@ -1,0 +1,26 @@
+Order ID,Customer Name,Product,Total Amount (Rs),Payment Status
+ORD-02-100,Anjali Kumar,Printer,23265,Paid
+ORD-02-101,Arjun Das,Speaker,64152,Paid
+ORD-02-102,Sneha Joshi,Webcam,121329,Paid
+ORD-02-103,Vikram Rao,Smartwatch,31388,Paid
+ORD-02-104,Meena Kapoor,Laptop,56430,Paid
+ORD-02-105,Divya Nair,Speaker,67405,Partial
+ORD-02-106,Karan Singh,Speaker,89250,Pending
+ORD-02-107,Raj Malhotra,Printer,18435,Paid
+ORD-02-108,Pooja Reddy,Laptop,30905,Pending
+ORD-02-109,Pooja Reddy,Webcam,88260,Partial
+ORD-02-110,Rohit Patel,Tablet,15792,Partial
+ORD-02-111,Priya Mehta,Webcam,92651,Paid
+ORD-02-112,Sneha Joshi,Laptop,9730,Pending
+ORD-02-113,Arjun Das,Smartwatch,27546,Partial
+ORD-02-114,Sneha Joshi,Headphones,39270,Paid
+ORD-02-115,Anjali Kumar,Monitor,43339,Partial
+ORD-02-116,Rohit Patel,Smartwatch,4160,Pending
+ORD-02-117,Sneha Joshi,Tablet,15333,Partial
+ORD-02-118,Karan Singh,Tablet,100419,Paid
+ORD-02-119,Suresh Iyer,Webcam,23536,Paid
+ORD-02-120,Neha Gupta,Webcam,18073,Partial
+ORD-02-121,Suresh Iyer,Printer,15620,Paid
+ORD-02-122,Anjali Kumar,Headphones,99008,Paid
+ORD-02-123,Suresh Iyer,Monitor,85064,Paid
+ORD-02-124,Vikram Rao,Tablet,4018,Paid
